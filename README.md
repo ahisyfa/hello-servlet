@@ -80,3 +80,43 @@ popular Java technology for web application development: JavaServer Pages (JSP).
 A servlet is a Java class that can be loaded dynamically into and run by a special web server. This servletaware
 web server is called a servlet container, which also was called a servlet engine in the early days of the
 servlet technology.
+
+## Servlet's Life Cycle
+
+Please see: [BasicSerlet.java](src/main/java/servlet/BasicServlet.java)
+
+### 1. Init method
+```public void init(ServletConfig config) throws ServletException```
+
+The init method is called by the servlet container after the servlet class has been instantiated. The servlet container calls
+this method exactly once to indicate to the servlet that the servlet is being placed into service. The init method must
+complete successfully before the servlet can receive any requests.
+
+### 2. The Service Method
+``` public void service(ServletRequest request, ServletResponse response) throws ServletException, java.io.IOException ```
+
+The service method is called by the servlet container after the servlet's init method to allow the servlet to respond to a
+request.
+
+### 3. The Destroy Method
+```public void destroy()```
+
+The servlet container calls the destroy method before removing a servlet instance from service. This normally happens
+when the servlet container is shut down or the servlet container needs some free memory.
+
+
+## Servlet Context
+"In servlet programming, the servlet context is the environment where the servlet runs. The servlet container creates a
+ ServletContext object that you can use to access information about the servlet's environment." ~Budi Kurniawan
+ 
+ See: [Get Servlet Context](src/main/java/servlet/GetContextServlet.java)
+
+### Requests and Responses
+
+The ServletRequest interface defines an object used to encapsulate information about the user's request, including
+parameter name/value pairs, attributes, and an input stream.
+
+See: [Handle Servlet Request](src/main/java/servlet/RequestDemoServlet.java)
+
+Open: [Form Send Request to Servlet](src/main/webapp/form.html)
+
