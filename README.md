@@ -120,3 +120,13 @@ See: [Handle Servlet Request](src/main/java/servlet/RequestDemoServlet.java)
 
 Open: [Form Send Request to Servlet](src/main/webapp/form.html)
 
+## GenericServlet class
+
+By extend GenericServlet, we get benefits as below:
+1. You have to provide implementations for all five methods of the Servlet interface, even though most of the time you
+only need one. This makes your code look unnecessarily complicated.
+2. The ServletConfig object is passed to the init method. You need to preserve this object to use it from other methods.
+This is not difficult, but it means extra work.
+
+Example: [Simpel Servlet](src/main/java/servlet/SimpleServlet.java)
+
