@@ -9,7 +9,7 @@ import java.io.IOException;
  * @version $Id: HomeServlet.java, v 0.1 2020-03-14  22.34 Ahmad Isyfalana Amin Exp $
  */
 @WebServlet(
-    name = "HomeServlet",
+    name = "BasicServlet",
     urlPatterns = {"/basic-servlet"}
 )
 public class BasicServlet implements Servlet {
