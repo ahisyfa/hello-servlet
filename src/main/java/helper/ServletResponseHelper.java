@@ -31,17 +31,26 @@ public class ServletResponseHelper {
     public static ServletResponseHelper thenWriteHeader() throws IOException {
         servletResponseHelper
                 .getHttpServletResponse()
-                .getWriter()
-                .append(FileReaderHelper.getContent("layout/header.html"));
+                .getOutputStream()
+                .print(FileReaderHelper.getContent("layout/header.html"));
 
         return servletResponseHelper;
     }
 
-    public static ServletResponseHelper thenWriteBodyContent(String content) throws IOException {
+    public static ServletResponseHelper thenWriteSimpleBodyContent(String content) throws IOException {
         servletResponseHelper
                 .getHttpServletResponse()
-                .getWriter()
-                .append(FileReaderHelper.getContent(content));
+                .getOutputStream()
+                .print(content);
+
+        return servletResponseHelper;
+    }
+
+    public static ServletResponseHelper thenWriteBodyContent(String filePath) throws IOException {
+        servletResponseHelper
+                .getHttpServletResponse()
+                .getOutputStream()
+                .print(FileReaderHelper.getContent(filePath));
 
         return servletResponseHelper;
     }
@@ -49,8 +58,8 @@ public class ServletResponseHelper {
     public static ServletResponseHelper thenWriteFooter() throws IOException {
         servletResponseHelper
                 .getHttpServletResponse()
-                .getWriter()
-                .append(FileReaderHelper.getContent("layout/footer.html"));
+                .getOutputStream()
+                .print(FileReaderHelper.getContent("layout/footer.html"));
 
         return servletResponseHelper;
     }
@@ -58,7 +67,7 @@ public class ServletResponseHelper {
     public static void fly() throws IOException {
         servletResponseHelper
                 .getHttpServletResponse()
-                .getWriter()
+                .getOutputStream()
                 .flush();
     }
 

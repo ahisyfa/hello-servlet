@@ -19,7 +19,7 @@ public class FileReaderHelper {
 
             String line = null;
             while ( (line = bufferedReader.readLine()) != null ) {
-                builder.append(line);
+                builder.append(line + "\n");
             }
 
         } catch (FileNotFoundException e) {
