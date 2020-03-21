@@ -11,17 +11,16 @@ import java.io.IOException;
 
 /**
  * @author Ahmad Isyfalana Amin
- * @version $Id: HomeServlet.java, v 0.1 2020-03-21  19.19 Ahmad Isyfalana Amin Exp $
+ * @version $Id: SessionManegmentServlet.java, v 0.1 2020-03-21  20.54 Ahmad Isyfalana Amin Exp $
  */
 @WebServlet(
-    name = "HomeServlet",
-    urlPatterns = {""}
+    name = "RegisterServlet",
+    urlPatterns = {"/session"}
 )
-public class HomeServlet extends HttpServlet {
+public class SessionManegmentServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         String content = "home/content_home.html";
 
         ServletResponseHelper.with(resp)
@@ -30,5 +29,4 @@ public class HomeServlet extends HttpServlet {
                 .thenWriteFooter()
                 .fly();
     }
-
 }
