@@ -1,0 +1,72 @@
+<div class="container">
+    <h1>Application and Session Events</h1>
+    <hr />
+
+    <h2>Intro</h2>
+    <ul>
+        <li>
+            <p>
+                ServletContext object  is used to to share information among  all the servlets in a web application.
+                The ServletContext object is created by the servlet container, and, among other things, it has a method called setAttribute. That
+                method causes the object to act like a Hashtable, where you can store an object that is identified by a key and later retrieve
+                the object by passing the key.
+            </p>
+        </li>
+        <li>
+            <p>
+                Similar to the ServletContext object, an Httpsession
+                enables you to store key/object pairs. Unlike the ServletContext, which is accessible by all the servlets, an HttpSession
+                object is linked to a particular user and is available only to that user.
+            </p>
+        </li>
+    </ul>
+    <p>
+        In relation to the ServletContext object, the Servlet 2.3 API enables you to get notifications when the ServletContext object
+        is created and destroyed, or when an attribute (a key/object pair) is created, removed, or replaced. The moments these
+        things occur have now become Java events that you can listen to.
+    </p>
+
+    <h2>Listening to Application Events</h2>
+    <p>
+        At the application level, the javax.servlet package provides two listener interfaces that support event notifications for state
+        changes in the ServletContext object: the <code>ServletContextListener</code> interface and the <code>ServletContextAttributesListener</code>
+        interface.
+    </p>
+
+    <h3>ServletContextListener</h3>
+    <script src="http://gist-it.appspot.com/https://github.com/ahisyfa/hello-servlet/blob/master/src/main/java/eventListener/AppLifeCycleEventListener.java"></script>
+
+    <h3>ServletContextAttributesListener</h3>
+    <p>
+        Listening to ServletContextAttributeListener
+    </p>
+
+    <p>
+        In addition to a life cycle listener, you also can implement the ServletContextAttributeListener class to be notified when
+        any attribute is added to the ServletContext or if any of the ServletContext's attributes are changed or removed.
+        Implementing this interface, you must provide implementations for its three methods: attributeAdded, attributeRemoved,
+        and attributeReplace. The signatures for those methods are as follows:
+        <ul>
+            <li><code>public void attributeAdded(ServletContextAttributeEvent scae)</code></li>
+            <li><code>public void attributeRemoved(ServletContextAttributeEvent scae)</code></li>
+            <li><code>public void attributeReplaced(ServletContextAttributeEvent scae)</code></li>
+        </ul>
+    </p>
+
+    <h4>Create PageCounterServlet</h4>
+    <p>Click this button to see PageCounterServlet</p>
+    <br> <br>
+    <a href="/counter" class="btn btn-md btn-primary">See Counter Servlet</a>
+    <br>
+
+    <script src="http://gist-it.appspot.com/https://github.com/ahisyfa/hello-servlet/blob/master/src/main/java/eventListener/AppAttributeEventListener.java"></script>
+
+
+
+
+    <h2>Listening to Session Events</h2>
+    <p>
+
+    </p>
+
+</div>

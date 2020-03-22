@@ -10,20 +10,19 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * fundamental servlet
  * @author Ahmad Isyfalana Amin
- * @version $Id: FundamentalServlet.java, v 0.1 2020-03-22  00.28 Ahmad Isyfalana Amin Exp $
+ * @version $Id: EventServlet.java, v 0.1 2020-03-22  09.57 Ahmad Isyfalana Amin Exp $
  */
 @WebServlet(
-        name = "FundamentalServlet",
-        urlPatterns = {"/fundamental"}
+        name = "EventServlet",
+        urlPatterns = {"/event"}
 )
-public class FundamentalServlet extends HttpServlet {
+public class EventServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setCharacterEncoding("UTF-8");
-        String content = "fundamental/fundamental.html";
+        String content = "event/event.html";
 
         ServletResponseHelper.with(resp)
                 .thenWriteHeader()
@@ -31,5 +30,4 @@ public class FundamentalServlet extends HttpServlet {
                 .thenWriteFooter()
                 .fly();
     }
-
 }
