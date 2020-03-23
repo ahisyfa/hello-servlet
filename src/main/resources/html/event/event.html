@@ -54,19 +54,45 @@
     </p>
 
     <h4>Create PageCounterServlet</h4>
-    <p>Click this button to see PageCounterServlet</p>
-    <br>
+    <p class="mb-md-1">Click this button to see PageCounterServlet</p>
     <a href="/counter" class="btn btn-md btn-primary">See Counter Servlet</a>
     <br> <br>
 
     <script src="http://gist-it.appspot.com/https://github.com/ahisyfa/hello-servlet/blob/master/src/main/java/eventListener/AppAttributeEventListener.java"></script>
 
 
+    <hr class="my-4">
 
-
-    <h2>Listening to Session Events</h2>
+    <h2>Listening to HttpSession Events</h2>
     <p>
-        Next day...
+        The javax.servlet.http package provides two interfaces that you can implement to listen to HttpSession events:
     </p>
+    <ol>
+        <li><code>HttpSessionListener</code></li>
+        <li><code>HttpSessionAttributeListener</code>.</li>
+    </ol>
+    <p>
+        <code>HttpSessionListener</code> enables you to listen to a session's life cycle events, that is,
+        the event that gets triggered when an HttpSession object is created and the event that is raised when an HttpSession object
+        is destroyed.
+        The HttpSessionListener interface has two methods: sessionCreated and sessionDestroyed. The signatures of the two
+        methods are given here:
+    </p>
+    <ul>
+        <li><sampl>public void sessionCreated(HttpSessionEvent se)</sampl></li>
+        <li><sampl>public void sessionDestroyed(HttpSessionEvent se)</sampl></li>
+    </ul>
+
+    <p>
+        <code>HttpSessionAttributeListener</code>, provides events that get raised when an attribute is added
+        to, removed from, or modified in the HttpSession object.
+        The interface provides three methods: attributeAdded, attributeRemoved,
+        and attributeReplaced. The signatures of the three methods are as follows:
+    </p>
+    <ul>
+        <li><sampl>public void attributeAdded(HttpSessionBindingEvent sbe)</sampl></li>
+        <li><sampl>public void attributeRemoved(HttpSessionBindingEvent sbe)</sampl></li>
+        <li><sampl>public void attributeReplaced(HttpSessionBindingEvent sbe)</sampl></li>
+    </ul>
 
 </div>
