@@ -1,8 +1,8 @@
 FROM openjdk:8-jdk-alpine
 
-COPY . .
-
 RUN ./mvnw package
+
+COPY . .
 
 EXPOSE 8080
 
