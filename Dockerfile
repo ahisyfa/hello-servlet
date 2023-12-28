@@ -1,12 +1,10 @@
 FROM openjdk:8-jdk-alpine
 
-ARG JAR_FILE=target/Hello-Servlet.jar
+COPY . .
 
-# cd /usr/local/runme
-WORKDIR /usr/local/runme
+RUN ./mvnw package
 
-# copy target/find-links.jar /usr/local/runme/app.jar
-COPY ${JAR_FILE} app.jar
+EXPOSE 8080
 
 # java -jar /usr/local/runme/app.jar
-ENTRYPOINT ["java","-jar","app.jar"]
+ENTRYPOINT ["sh","target/bin/webapp"]
