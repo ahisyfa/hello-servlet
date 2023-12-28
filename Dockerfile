@@ -4,8 +4,6 @@ COPY . .
 
 RUN ./mvnw package
 
-COPY target .
-
 EXPOSE 8080
 
 # java -jar /usr/local/runme/app.jar
