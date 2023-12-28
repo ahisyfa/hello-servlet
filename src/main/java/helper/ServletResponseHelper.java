@@ -19,7 +19,7 @@ public class ServletResponseHelper {
         this.httpServletResponse = response;
     }
 
-    public static ServletResponseHelper with(HttpServletResponse response) {
+    public static synchronized ServletResponseHelper with(HttpServletResponse response) {
 
         if (servletResponseHelper == null) {
             servletResponseHelper = new ServletResponseHelper(response);
@@ -28,7 +28,7 @@ public class ServletResponseHelper {
         return servletResponseHelper;
     }
 
-    public static ServletResponseHelper thenWriteHeader() throws IOException {
+    public static synchronized ServletResponseHelper thenWriteHeader() throws IOException {
         servletResponseHelper
                 .getHttpServletResponse()
                 .getOutputStream()
@@ -37,7 +37,7 @@ public class ServletResponseHelper {
         return servletResponseHelper;
     }
 
-    public static ServletResponseHelper thenWriteSimpleBodyContent(String content) throws IOException {
+    public static synchronized ServletResponseHelper thenWriteSimpleBodyContent(String content) throws IOException {
         servletResponseHelper
                 .getHttpServletResponse()
                 .getOutputStream()
@@ -46,7 +46,7 @@ public class ServletResponseHelper {
         return servletResponseHelper;
     }
 
-    public static ServletResponseHelper thenWriteBodyContent(String filePath) throws IOException {
+    public static synchronized ServletResponseHelper thenWriteBodyContent(String filePath) throws IOException {
         servletResponseHelper
                 .getHttpServletResponse()
                 .getOutputStream()
@@ -55,7 +55,7 @@ public class ServletResponseHelper {
         return servletResponseHelper;
     }
 
-    public static ServletResponseHelper thenWriteFooter() throws IOException {
+    public static synchronized ServletResponseHelper thenWriteFooter() throws IOException {
         servletResponseHelper
                 .getHttpServletResponse()
                 .getOutputStream()
@@ -64,7 +64,7 @@ public class ServletResponseHelper {
         return servletResponseHelper;
     }
 
-    public static void fly() throws IOException {
+    public static synchronized void  fly() throws IOException {
         servletResponseHelper
                 .getHttpServletResponse()
                 .getOutputStream()
